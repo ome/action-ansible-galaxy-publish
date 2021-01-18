@@ -1,0 +1,20 @@
+---
+name: Push an Ansible role to Galaxy
+description: Push an Updated Ansible role to Ansible Galaxy
+author: Open Microscopy Environment
+
+branding:
+  icon: server
+  color: yellow
+
+inputs:
+  galaxy-api-key:
+    description: Ansible galaxy API key
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Import role
+      run: ansible-galaxy role import --api-key ${{ inputs.galaxy-api-key }} ${GITHUB_REPOSITORY%/*} ${GITHUB_REPOSITORY#*/}
+      shell: bash
