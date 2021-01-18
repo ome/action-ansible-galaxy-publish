@@ -1,4 +1,4 @@
-# Molecule action
+# Ansible Galaxy Publish GitHub action
 
 A GitHub action to push an [Ansible](https://www.ansible.com/) role to [Ansible Galaxy](https://galaxy.ansible.com/).
 
