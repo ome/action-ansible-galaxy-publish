@@ -11,10 +11,15 @@ inputs:
   galaxy-api-key:
     description: Ansible galaxy API key
     required: true
+  galaxy-version: The version to push to Ansible galaxy
+    required: true
+  role-name: The name of the role
+    required: true
+
 
 runs:
   using: composite
   steps:
     - name: Import role
-      run: ansible-galaxy role import --api-key ${{ inputs.galaxy-api-key }} ${GITHUB_REPOSITORY%/*} ${GITHUB_REPOSITORY#*/}
+      run: ansible-galaxy role import -vvv --api-key ${{ inputs.galaxy-api-key }}  --branch ${{ inputs.galaxy-version }}  --role-name=${{ inputs.role-name }} ${GITHUB_REPOSITORY%/*} ${GITHUB_REPOSITORY#*/}
       shell: bash
