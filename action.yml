@@ -11,9 +11,11 @@ inputs:
   galaxy-api-key:
     description: Ansible galaxy API key
     required: true
-  galaxy-version: The version to push to Ansible galaxy
+  galaxy-version: 
+    description: The version to push to Ansible galaxy
     required: true
-  role-name: The name of the role
+  role-name:
+    description: The name of the role
     required: true
 
 
